@@ -1,0 +1,73 @@
+---
+title: "Using your custom functions"
+output: html_document
+date: "2025-03-08"
+---
+
+## Loading your libraries
+
+```{r package installs, echo=FALSE}
+install.packages("tidyverse", dependencies = TRUE)
+install.packages("magrittr", dependencies = TRUE)
+install.packages("rlang", dependencies = TRUE)
+install.packages("scales", dependencies = TRUE)
+install.packages("lemon", dependencies = TRUE)
+```
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magrittr)
+library(rlang)
+library(scales)
+library(lemon)
+```
+
+## Importing your data
+
+Here, we're just going to construct some dummy data to work with.
+
+```{r data import}
+my_data <- data.frame(
+    location = c(rep("In person at polling places", 9),
+                 rep("By absentee or mail-in ballot", 9)) |>
+        factor(levels = c("In person at polling places",
+                          "By absentee or mail-in ballot"),
+               ordered = TRUE),
+    date = c(rep(c(rep("Nov 2020", 3),
+                   rep("Nov 2022", 3),
+                   rep("Nov 2024", 3)), 2)),
+    party = c(rep(c("Dem candidate voters",
+                    "Rep candidate voters",
+                    "All voters"), 6)) |>
+        factor(levels = c("All voters",
+                          "Rep candidate voters",
+                          "Dem candidate voters"),
+               ordered = TRUE),
+    share = c(98, 64, 82,
+              97, 75, 86,
+              86, 94, 90,
+              95, 19, 59,
+              94, 41, 67,
+              78, 72, 75)
+)
+```
+
+## Reading in your functions
+
+Then, we'll source our custom function that we just built. You may need to adjust the file path to get this code to work.
+This is how you'd want to access your functions in your typical workflow, but if you run into issues here, just run the scripts manually and the functions will be in your working environment.
+
+```{r function import}
+source("nicar_line_simple.R")
+source("nicar_theme.R")
+```
+
+## Making your plot and applying your functions
+
+Here's where you can customize your plot using the parameters we programmed in the custom function!
+
+```{r making plot}
+ggplot() +
+    my_line(x = date, y = share) +
+    my_theme()
+```
