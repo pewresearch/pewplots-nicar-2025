@@ -7,7 +7,7 @@ This GitHub repository contains the files from a NICAR 2025 class on customizing
 
 To walk through the files as we did in that session, clone this repository. Then, use the `class-walkthrough.Rmd` file and follow along in `nicar_theme.R`, `nicar_line_simple.R`, and `class.Rmd`. 
 
-Below are some general tips and resources we recommend for getting started. For more detailed information, you can also see the slides we used [here](https://docs.google.com/presentation/d/1FPCQN_F206aIq3LNTK1paMcXUWYFJDeNGpYq1wltMC0/edit?usp=sharing). 
+Below are some general tips and resources we recommend for getting started. For more detailed information, you can also see the slides we used [here](https://docs.google.com/presentation/d/1FPCQN_F206aIq3LNTK1paMcXUWYFJDeNGpYq1wltMC0/preview). 
 
 ## Why wrappers?
 Writing wrapper and theme functions for ggplot eliminates the need for redundant and tedious styling code every time you make a new plot, and/or the need for extensive manual editing outside of R. While the initial setup can be time-consuming in the short term, it's much faster than building functions from scratch and can save time in the long run. 
