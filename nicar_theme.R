@@ -99,7 +99,6 @@ my_theme <- function(legend = FALSE, axes = FALSE, gridlines = FALSE, ...){
   theme <- theme_bw(base_size = base_size, base_family = base_family) %+replace%
     theme(plot.title = plot_title,
           plot.subtitle = plot_subtitle,
-          plot.caption = plot_caption,
           legend.position = legend_position,
           legend.title = legend_title,
           legend.text = legend_text,
